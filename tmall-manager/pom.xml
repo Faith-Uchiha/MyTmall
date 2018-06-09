@@ -14,7 +14,6 @@
   	<module>tmall-manager-service</module>
   	<module>tmall-manager-pojo</module>
   	<module>tmall-manager-interface</module>
-  	<module>tmall-manager-web</module>
   </modules>
   
   <dependencies>

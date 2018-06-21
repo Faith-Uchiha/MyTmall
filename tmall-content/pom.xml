@@ -11,5 +11,14 @@
   <packaging>pom</packaging>
   <modules>
   	<module>tmall-content-service</module>
+  	<module>tmall-content-interface</module>
   </modules>
+  
+   <dependencies>
+  	<dependency>
+  		<groupId>com.Amaterasu.Z</groupId>
+  		<artifactId>tmall-common</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

@@ -39,6 +39,7 @@
 	<div class="indexW">
       <div id="index_slide" class="slide_wrap">
 		<ol>
+			<!-- 轮播图数据 -->
 			<c:forEach items="${ad1List}" var="node" varStatus="status">
 			<li>
 			  <a name="sfbest_hp_hp_focus_${status.index }" class="fore_pic trackref" href="${node.url }" target="_blank"> 

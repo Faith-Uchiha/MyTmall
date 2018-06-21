@@ -33,6 +33,12 @@ $(function(){
             				target : node.target,
             				id : data.data.id
             			});
+        				
+        				//如果不加下面这句，那么连续添加节点就会失败。刷新之后显示只添加最初一个
+        				//原因：没加下面这句之前，插入节点后，其实只是页面改变了，但是没有插入数据库。
+        				//只有执行了onAfterEdit才会插入数据库，而onAfterEdit只有在页面加载才会执行
+        				//所以需要重新请求/content/category/list
+        				$.get("/content/category/list");
         			}else{
         				$.messager.alert('提示','创建'+node.text+' 分类失败!');
         			}

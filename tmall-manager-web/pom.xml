@@ -8,10 +8,17 @@
   <artifactId>tmall-manager-web</artifactId>
   <packaging>war</packaging>
   
+  <!-- 商品服务 -->
   <dependencies>
   	<dependency>
   		 <groupId>com.Amaterasu.Z</groupId>
     	<artifactId>tmall-manager-interface</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<!-- 内容服务 -->
+  	<dependency>
+  		<groupId>com.Amaterasu.Z</groupId>
+    	<artifactId>tmall-content-interface</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   	<!-- 依赖service的interface -->

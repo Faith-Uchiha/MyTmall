@@ -103,6 +103,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.Amaterasu.Z.pojo.TbItemCat" >
+  	<selectKey keyProperty="id" keyColumn="id" resultType="Long" order="AFTER">
+  		SELECT LAST_INSERT_ID(); 
+  	</selectKey>
     insert into tb_item_cat (id, parent_id, name, 
       status, sort_order, is_parent, 
       created, updated)

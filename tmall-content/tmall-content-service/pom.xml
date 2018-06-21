@@ -6,4 +6,101 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>tmall-content-service</artifactId>
+  <packaging>war</packaging>
+  
+  <!-- 引入原因：在service层，会注入Mapper对象来操作数据库
+  		用这个Mapper对象的方法，就要引入dao工程
+  		而且方法还会用到manager-pojo做参数或返回值，所以pojo也要依赖。
+  		不过content-service依赖content-interface，content-interface依赖了pojo ,传递-->
+  <dependencies>
+  	<dependency>
+   		<groupId>com.Amaterasu.Z</groupId>
+    	<artifactId>tmall-manager-dao</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    
+    <!-- 依赖接口模块，否则实现类实现接口的时候找不到接口定义 -->
+    <dependency>
+    	 <groupId>com.Amaterasu.Z</groupId>
+    	<artifactId>tmall-content-interface</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
+  <!-- Spring -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-beans</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jdbc</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-aspects</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jms</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+	</dependency>
+	
+	<!-- dubbo相关 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.jboss.netty</groupId>
+					<artifactId>netty</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.sgroschupf</groupId>
+			<artifactId>zkclient</artifactId>
+		</dependency>
+		<!-- 前台缓存需要连接redis -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+  </dependencies>
+  
+  <build>
+  	<plugins>
+		<!-- 配置Tomcat插件 -->
+		<plugin>
+			<groupId>org.apache.tomcat.maven</groupId>
+			<artifactId>tomcat7-maven-plugin</artifactId>
+			<configuration>
+				<path>/</path>
+				<port>8083</port>
+			</configuration>
+		</plugin>
+	</plugins>
+  </build>
 </project>

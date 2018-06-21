@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.2.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd 
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd ">
+
+	<context:component-scan base-package="com.Amaterasu.Z.jedisclient"/>
+	<!-- 单机版 -->
+	<bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+		<constructor-arg name="host" value="192.168.56.11"></constructor-arg>
+		<constructor-arg name="port" value="6379"></constructor-arg>
+	</bean>
+	<bean id="jedisClientPool" class="com.Amaterasu.Z.jedisclient.impl.JedisClientPool"/>
+
+	<!-- 打开注释就可切换为集群 -->
+<!-- 	<BEAN ID="JEDISCLUSTER" CLASS="REDIS.CLIENTS.JEDIS.JEDISCLUSTER"> -->
+<!-- 		<CONSTRUCTOR-ARG> -->
+<!-- 			<SET> -->
+<!-- 				<BEAN CLASS="REDIS.CLIENTS.JEDIS.HOSTANDPORT"> -->
+<!-- 					<CONSTRUCTOR-ARG NAME="HOST" VALUE="192.168.56.11"></CONSTRUCTOR-ARG> -->
+<!-- 					<CONSTRUCTOR-ARG NAME="PORT" VALUE="7001"></CONSTRUCTOR-ARG> -->
+<!-- 				</BEAN> -->
+<!-- 				<BEAN CLASS="REDIS.CLIENTS.JEDIS.HOSTANDPORT"> -->
+<!-- 					<CONSTRUCTOR-ARG NAME="HOST" VALUE="192.168.56.11"></CONSTRUCTOR-ARG> -->
+<!-- 					<CONSTRUCTOR-ARG NAME="PORT" VALUE="7002"></CONSTRUCTOR-ARG> -->
+<!-- 				</BEAN> -->
+<!-- 				<BEAN CLASS="REDIS.CLIENTS.JEDIS.HOSTANDPORT"> -->
+<!-- 					<CONSTRUCTOR-ARG NAME="HOST" VALUE="192.168.56.11"></CONSTRUCTOR-ARG> -->
+<!-- 					<CONSTRUCTOR-ARG NAME="PORT" VALUE="7003"></CONSTRUCTOR-ARG> -->
+<!-- 				</BEAN> -->
+<!-- 				<BEAN CLASS="REDIS.CLIENTS.JEDIS.HOSTANDPORT"> -->
+<!-- 					<CONSTRUCTOR-ARG NAME="HOST" VALUE="192.168.56.11"></CONSTRUCTOR-ARG> -->
+<!-- 					<CONSTRUCTOR-ARG NAME="PORT" VALUE="7004"></CONSTRUCTOR-ARG> -->
+<!-- 				</BEAN> -->
+<!-- 				<BEAN CLASS="REDIS.CLIENTS.JEDIS.HOSTANDPORT"> -->
+<!-- 					<CONSTRUCTOR-ARG NAME="HOST" VALUE="192.168.56.11"></CONSTRUCTOR-ARG> -->
+<!-- 					<CONSTRUCTOR-ARG NAME="PORT" VALUE="7005"></CONSTRUCTOR-ARG> -->
+<!-- 				</BEAN> -->
+<!-- 				<BEAN CLASS="REDIS.CLIENTS.JEDIS.HOSTANDPORT"> -->
+<!-- 					<CONSTRUCTOR-ARG NAME="HOST" VALUE="192.168.56.11"></CONSTRUCTOR-ARG> -->
+<!-- 					<CONSTRUCTOR-ARG NAME="PORT" VALUE="7006"></CONSTRUCTOR-ARG> -->
+<!-- 				</BEAN> -->
+<!-- 			</SET> -->
+<!-- 		</CONSTRUCTOR-ARG> -->
+<!-- 	</BEAN> -->
+<!-- 	<BEAN ID="JEDISCLIENTCLUSTER" CLASS="COM.AMATERASU.Z.JEDISCLIENT.IMPL.JEDISCLIENTCLUSTER"/> -->
+	
+</beans>

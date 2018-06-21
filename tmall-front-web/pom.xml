@@ -11,12 +11,18 @@
   <packaging>war</packaging>
   
    <dependencies>
-<!--   	<dependency> -->
-<!--   		 <groupId>com.Amaterasu.Z</groupId> -->
-<!--     	<artifactId>tmall-manager-interface</artifactId> -->
-<!--     	<version>0.0.1-SNAPSHOT</version> -->
-<!--   	</dependency> -->
-  	<!-- 依赖service的interface -->
+   <dependency>
+  		<groupId>com.Amaterasu.Z</groupId>
+  		<artifactId>tmall-common</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+   	<!-- 依赖内容服务service的interface -->
+  	<dependency>
+  		 <groupId>com.Amaterasu.Z</groupId>
+    	<artifactId>tmall-content-interface</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  
   	<!-- Spring -->
 	<dependency>
 		<groupId>org.springframework</groupId>

@@ -261,6 +261,7 @@ margin:10px 0 0 0;
 #booksort .item .subCat{font-size:12px;overflow:hidden;line-height:20px;height:20px;}
 #booksort .item .subCat a{ color:#ddeac8;}
 #booksort .item .subCat li{float:left;margin-right:8px;_display:inline;}
+/*---------当div class="item"时，左侧栏不显示详细信息，隐藏class="i-cm"的div----------*/
 #booksort .item .i-cm{position:absolute;top:0;left:200px;width:560px;height:480px;background:#ffffff;z-index:999;filter:alpha(opacity=98);opacity:0.98;display:none;}
 #booksort .item .i-master s{position:absolute;width:11px;height:54px;background-color:white;left:190px;z-index:1000;display:none;margin-top:-47px;}
 #booksort .item .i-master h3 .fresh{ width:16px; height:22px; background:url(../images/left_lm_a.png) no-repeat -10px 5px; margin-left:-20px;float :left;_margin-left:-10px;_position:relative;}
@@ -272,6 +273,7 @@ margin:10px 0 0 0;
 #booksort .item .i-master h3 .health{ width:16px; height:22px; background:url(../images/left_lm_a.png) no-repeat -10px -373px; margin-left:-20px; float:left;_margin-left:-10px;_position:relative;}
 #booksort .item .i-master h3 .tea{ width:16px; height:22px;background:url(../images/left_lm_a.png) no-repeat -10px -212px; margin-left:-20px; float:left; float:left;_margin-left:-10px;_position:relative;}
 #booksort .item .i-master h3 .tools{ width:16px; height:22px; background:url(../images/left_lm_a.png) no-repeat -10px -428px; margin-left:-20px; float:left;_margin-left:-10px;_position:relative;}
+/*---------当鼠标悬停后，改为div class="item hover"，显示class="i-cm"的div----------*/
 #booksort .item.hover .i-cm{display:block;}
 #booksort .item.hover .i-master{background-color:white;color:#76ac25;margin-left:-10px;_position:relative;}
 #booksort .item.hover .i-master h3{ margin-left:10px;}

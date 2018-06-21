@@ -23,10 +23,11 @@
 	
 	<!-- 引用dubbo服务 -->
 	<dubbo:application name="tmall-manager-web"/>
-	<dubbo:registry protocol="zookeeper" address="192.168.56.11:2181,192.168.25.154:2182,192.168.25.154:2183"/>	
-	<dubbo:reference interface="com.Amaterasu.Z.service.ItemService" id="itemService" />
-	<dubbo:reference interface="com.Amaterasu.Z.service.ItemCatService" id="itemCatService" />
-	
+	<dubbo:registry protocol="zookeeper" address="192.168.56.11:2181"/><!-- ,192.168.25.154:2182,192.168.25.154:2183"/>-->	
+	<dubbo:reference interface="com.Amaterasu.Z.service.ItemService" id="itemService" timeout="60000"/>
+	<dubbo:reference interface="com.Amaterasu.Z.service.ItemCatService" id="itemCatService" timeout="60000"/>
+	<dubbo:reference interface="com.Amaterasu.Z.content.service.ContentCategoryService" id="contentCatService" timeout="60000"/>
+	<dubbo:reference interface="com.Amaterasu.Z.content.service.ContentService" id="contentService" timeout="60000"/>
 	<!-- 定义文件上传解析器 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

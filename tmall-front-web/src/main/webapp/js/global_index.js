@@ -15,6 +15,13 @@ COMSTATIC.mail_preg = function(mail) {
     }
     return false;
 }
+/*
+ * live() 方法为被选元素附加一个或多个事件处理程序，并规定当这些事件发生时运行的函数。
+	通过 live() 方法附加的事件处理程序适用于匹配选择器的当前及未来的元素
+	
+ * 下面的这个函数 实现了，当鼠标悬停在 class="item" 的div时，添加属性hover
+ * 多了这个属性，原来被隐藏的侧边栏的详细信息就会显示（CSS控制 定义在base_w1200.css文件里）
+ */
 $("div.item").live("mouseover",function(){
     $(this).addClass("hover");
 });

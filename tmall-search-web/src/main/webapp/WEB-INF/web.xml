@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <display-name>tmall-manager-web</display-name>
+  <display-name>tmall-search-web</display-name>
   <welcome-file-list>
    
     <welcome-file>index.html</welcome-file>
@@ -24,7 +24,7 @@
 
 	<!-- springmvc的前端控制器 -->
 	<servlet>
-		<servlet-name>mytmall-front</servlet-name>
+		<servlet-name>search-front</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<!-- contextConfigLocation不是必须的， 如果不配置contextConfigLocation， springmvc的配置文件默认在：WEB-INF/servlet的name+"-servlet.xml" -->
 		<init-param>
@@ -34,8 +34,8 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>mytmall-front</servlet-name>
-		<url-pattern>*.html</url-pattern><!-- 伪静态化 以html为后缀的请求才能被controller处理--> 
+		<servlet-name>search-front</servlet-name>
+		<url-pattern>*.html</url-pattern><!-- 伪静态化 -->
 	</servlet-mapping>
   
 </web-app>

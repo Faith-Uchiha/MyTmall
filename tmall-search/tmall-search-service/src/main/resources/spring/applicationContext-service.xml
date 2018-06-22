@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd ">
+
+	<!-- 不同工程包名不一样  此条配置为扫描注解所在包 -->
+	<context:component-scan base-package="com.Amaterasu.Z.search.service"/>
+	
+	<!-- 单例创建并管理SolrClient -->
+	<bean id="solrClient" class="org.apache.solr.client.solrj.impl.HttpSolrClient">
+		<constructor-arg index="0" value="${SOLR_SERVER}"/>
+	</bean>
+	<!-- 使用dubbo发布服务 -->
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="tmall-search" />
+	<dubbo:registry protocol="zookeeper"
+		address="192.168.56.11:2181 " /><!--,192.168.25.154:2182,192.168.25.154:2183-->
+	<!-- 用dubbo协议在20882端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="20882" />
+	<!-- 声明需要暴露的服务接口 -->
+<!-- 	<dubbo:service interface="com.Amaterasu.Z.content.service.ContentCategoryService"  -->
+<!-- 		ref="contentCategoryServiceImpl" timeout="60000"/> -->
+<!-- 																		实现类开头小写，否则发布服务不成功 -->
+	<dubbo:service interface="com.Amaterasu.Z.search.service.SearchService" ref="searchServiceImpl" timeout="60000"/>
+	
+</beans>

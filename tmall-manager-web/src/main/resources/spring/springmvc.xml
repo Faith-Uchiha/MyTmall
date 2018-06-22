@@ -10,6 +10,7 @@
 	<!-- 图片服务器地址 -->
 	<context:property-placeholder location="classpath:conf/resources.properties"/>
 	
+	<!-- 扫描注解 -->
 	<context:component-scan base-package="com.Amaterasu.Z.controller" />
 	<mvc:annotation-driven />
 	<bean
@@ -28,6 +29,8 @@
 	<dubbo:reference interface="com.Amaterasu.Z.service.ItemCatService" id="itemCatService" timeout="60000"/>
 	<dubbo:reference interface="com.Amaterasu.Z.content.service.ContentCategoryService" id="contentCatService" timeout="60000"/>
 	<dubbo:reference interface="com.Amaterasu.Z.content.service.ContentService" id="contentService" timeout="60000"/>
+	<dubbo:reference interface="com.Amaterasu.Z.search.service.SearchService" id="searchService" timeout="60000"/>
+	
 	<!-- 定义文件上传解析器 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

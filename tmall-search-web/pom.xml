@@ -5,29 +5,22 @@
     <artifactId>tmall-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>tmall-manager-web</artifactId>
+  <artifactId>tmall-search-web</artifactId>
   <packaging>war</packaging>
   
-  <!-- 商品服务 -->
   <dependencies>
+   <dependency>
+  		<groupId>com.Amaterasu.Z</groupId>
+  		<artifactId>tmall-common</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+   	<!-- 依赖搜索服务service的interface -->
   	<dependency>
   		 <groupId>com.Amaterasu.Z</groupId>
-    	<artifactId>tmall-manager-interface</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  	<!-- 内容服务 -->
-  	<dependency>
-  		<groupId>com.Amaterasu.Z</groupId>
-    	<artifactId>tmall-content-interface</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  	<!-- 搜索服务 -->
-  	<dependency>
-  		<groupId>com.Amaterasu.Z</groupId>
     	<artifactId>tmall-search-interface</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
   	</dependency>
-  	<!-- 依赖service的interface -->
+  
   	<!-- Spring -->
 	<dependency>
 		<groupId>org.springframework</groupId>
@@ -92,23 +85,7 @@
 			<groupId>com.github.sgroschupf</groupId>
 			<artifactId>zkclient</artifactId>
 		</dependency>
-		<!-- 图片服务器客户端 -->
-		<dependency>
-		  <groupId>fastdfs_client</groupId>
-		  <artifactId>fastdfs_client</artifactId>
-		  <version>1.25</version>
-		</dependency>
 		
-		<!-- 服务端接受图片的jar -->
-		<dependency>
-			<groupId>commons-io</groupId><!-- org.apache.commons 已经不能用了 -->
-			<artifactId>commons-io</artifactId>
-		</dependency>
-		<dependency>
-				<groupId>commons-fileupload</groupId>
-				<artifactId>commons-fileupload</artifactId>
-				<version>${commons-fileupload.version}</version>
-			</dependency>
   </dependencies>
   
   <build>
@@ -119,7 +96,7 @@
 			<artifactId>tomcat7-maven-plugin</artifactId>
 			<configuration>
 				<path>/</path>
-				<port>8080</port>
+				<port>8085</port>
 			</configuration>
 		</plugin>
 	</plugins>

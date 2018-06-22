@@ -93,7 +93,6 @@
 		  <artifactId>fastdfs_client</artifactId>
 		  <version>1.25</version>
 		</dependency>
-
   </dependencies>
   
   <build>

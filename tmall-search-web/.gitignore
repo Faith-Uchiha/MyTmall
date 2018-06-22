@@ -1,0 +1,5 @@
+.settings/   
+target/			
+.project
+.classpath
+# 忽略target下所有文件

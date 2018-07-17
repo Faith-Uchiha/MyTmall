@@ -3,7 +3,15 @@ package com.Amaterasu.Z.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
 import com.Amaterasu.Z.mapper.TbItemDescMapper;
@@ -27,6 +35,13 @@ public class ItemServiceImpl implements ItemService {
 	
 	@Autowired
 	private TbItemDescMapper itemDescMapper;
+	
+	//同步索引库需要
+	@Autowired
+	private JmsTemplate jmsTemplate;
+	
+	@Autowired
+	private Destination topicDestination;
 	
 	public TbItem selectItemById(long id){
 		
@@ -76,7 +91,16 @@ public class ItemServiceImpl implements ItemService {
 		tbItemDesc.setItemDesc(desc);
 		tbItemDesc.setItemId(id);
 		itemDescMapper.insert(tbItemDesc);
-		
+
+		//发送一个商品添加消息  
+		jmsTemplate.send(topicDestination, new MessageCreator() {
+			
+			@Override
+			public Message createMessage(Session session) throws JMSException {
+				TextMessage textMessage = session.createTextMessage(item.getId() + "");
+				return textMessage;
+			}
+		});
 		return ResponseResult.ok();
 	}	
 }

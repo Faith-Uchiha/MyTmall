@@ -2,6 +2,8 @@ package com.Amaterasu.Z.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,8 @@ public class ItemController {
 	
 	@Autowired
 	private ItemService itemService;
+	
+
 	
 	/**
 	 * 根据商品ID查询
@@ -54,8 +58,9 @@ public class ItemController {
 	@RequestMapping(value="/item/save")
 	@ResponseBody
 	public ResponseResult insertItem(TbItem item,String desc) {
-	
+		
 		return itemService.insertItem(item,desc);
+	
 	}
 	
 	

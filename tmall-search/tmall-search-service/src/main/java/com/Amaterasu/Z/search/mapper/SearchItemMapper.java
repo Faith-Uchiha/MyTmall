@@ -7,4 +7,6 @@ import com.Amaterasu.Z.pojo.SearchItem;
 public interface SearchItemMapper {
 
 	public List<SearchItem> getSearchItemList();
+	SearchItem getItemById(long id);
+	
 }

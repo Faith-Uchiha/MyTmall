@@ -47,6 +47,8 @@
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-aspects</artifactId>
 	</dependency>
+	
+	<!-- 与activemq整合需要包 -->
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-jms</artifactId>
@@ -83,6 +85,12 @@
 		<dependency>
 			<groupId>org.apache.solr</groupId>
 			<artifactId>solr-solrj</artifactId>
+		</dependency>
+		
+		<!-- 同步索引库 -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
 		</dependency>
   </dependencies>
   

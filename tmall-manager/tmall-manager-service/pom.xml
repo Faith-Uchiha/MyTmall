@@ -39,6 +39,8 @@
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-aspects</artifactId>
 	</dependency>
+	
+	<!-- 消息队列 -->
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-jms</artifactId>
@@ -70,6 +72,11 @@
 		<dependency>
 			<groupId>com.github.sgroschupf</groupId>
 			<artifactId>zkclient</artifactId>
+		</dependency>
+			<!-- 同步索引库 -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
 		</dependency>
 	</dependencies>
   <packaging>war</packaging>

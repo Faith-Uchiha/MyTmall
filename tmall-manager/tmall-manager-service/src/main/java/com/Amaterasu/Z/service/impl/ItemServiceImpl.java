@@ -45,6 +45,7 @@ public class ItemServiceImpl implements ItemService {
 	
 	public TbItem selectItemById(long id){
 		
+		//直接用查询主键
 		TbItemExample example = new TbItemExample();
 		 Criteria criteria = example.createCriteria();
 		 criteria.andIdEqualTo(id);
@@ -102,5 +103,11 @@ public class ItemServiceImpl implements ItemService {
 			}
 		});
 		return ResponseResult.ok();
+	}
+
+	@Override
+	public TbItemDesc selectItemDescById(long id) {
+		TbItemDesc itemDesc = itemDescMapper.selectByPrimaryKey(id);
+		return itemDesc;
 	}	
 }

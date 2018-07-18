@@ -270,4 +270,7 @@
 			</plugins>
 		</pluginManagement>
 	</build>  
+	<modules>
+		<module>tmall-item-web</module>
+	</modules>
 </project>

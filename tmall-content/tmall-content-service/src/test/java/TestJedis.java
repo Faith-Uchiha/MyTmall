@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.Amaterasu.Z.utils.JedisClient;
+import com.Amaterasu.Z.jedis.JedisClient;
 
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.Jedis;

@@ -3,6 +3,8 @@ package com.Amaterasu.Z.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class TbItem implements Serializable {
     private Long id;
 
@@ -115,4 +117,5 @@ public class TbItem implements Serializable {
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
+ 
 }

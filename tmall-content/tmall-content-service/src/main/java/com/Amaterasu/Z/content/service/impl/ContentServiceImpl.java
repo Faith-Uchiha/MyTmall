@@ -11,13 +11,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.Amaterasu.Z.content.service.ContentService;
+import com.Amaterasu.Z.jedis.JedisClient;
 import com.Amaterasu.Z.mapper.TbContentMapper;
 import com.Amaterasu.Z.pojo.EasyUIDataGridResult;
 import com.Amaterasu.Z.pojo.ResponseResult;
 import com.Amaterasu.Z.pojo.TbContent;
 import com.Amaterasu.Z.pojo.TbContentExample;
 import com.Amaterasu.Z.pojo.TbContentExample.Criteria;
-import com.Amaterasu.Z.utils.JedisClient;
 import com.Amaterasu.Z.utils.JsonUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;

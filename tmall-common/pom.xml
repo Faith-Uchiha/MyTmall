@@ -74,5 +74,12 @@
 				<version>${jsp-api.version}</version>
 				<scope>provided</scope>
 			</dependency>
+			
+			<!-- redis模仿session -->
+		<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+			</dependency>
+			
 	</dependencies>
 </project>

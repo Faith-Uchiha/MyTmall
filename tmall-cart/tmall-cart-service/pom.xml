@@ -2,24 +2,30 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.Amaterasu.Z</groupId>
-    <artifactId>tmall-sso</artifactId>
+    <artifactId>tmall-cart</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>tmall-sso-service</artifactId>
+  <artifactId>tmall-cart-service</artifactId>
   <packaging>war</packaging>
   
+  <!-- 引入原因：在service层，会注入Mapper对象来操作数据库
+  		用这个Mapper对象的方法，就要引入dao工程
+  		而且方法还会用到manager-pojo做参数或返回值，所以pojo也要依赖。
+  		不过*-service依赖*-interface，*-interface依赖了pojo ,传递-->
   <dependencies>
-  <dependency>
+  	<dependency>
    		<groupId>com.Amaterasu.Z</groupId>
     	<artifactId>tmall-manager-dao</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
     </dependency>
-   <!-- 依赖接口模块，否则实现类实现接口的时候找不到接口定义 -->
+    
+    <!-- 依赖接口模块，否则实现类实现接口的时候找不到接口定义 -->
     <dependency>
     	 <groupId>com.Amaterasu.Z</groupId>
-    	<artifactId>tmall-sso-interface</artifactId>
+    	<artifactId>tmall-cart-interface</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
     </dependency>
+    
   <!-- Spring -->
 	<dependency>
 		<groupId>org.springframework</groupId>
@@ -75,7 +81,11 @@
 			<groupId>com.github.sgroschupf</groupId>
 			<artifactId>zkclient</artifactId>
 		</dependency>
-		
+		<!-- redis模仿session -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
   </dependencies>
   
   <build>
@@ -86,7 +96,7 @@
 			<artifactId>tomcat7-maven-plugin</artifactId>
 			<configuration>
 				<path>/</path>
-				<port>8087</port>
+				<port>8090</port>
 			</configuration>
 		</plugin>
 	</plugins>

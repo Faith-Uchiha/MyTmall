@@ -17,39 +17,43 @@
 		<constructor-arg name="host" value="192.168.56.11"></constructor-arg>
 		<constructor-arg name="port" value="6379"></constructor-arg>
 	</bean>
-	<bean id="jedisClientPool" class="com.Amaterasu.Z.jedisclient.impl.JedisClientPool"/>
+	<bean id="jedisClientPool" class="com.Amaterasu.Z.jedis.JedisClientPool">
+		<property name="jedisPool" ref="jedisPool"></property>
+	</bean>
 
 	<!-- 打开注释就可切换为集群 -->
-<!-- 	<BEAN ID="JEDISCLUSTER" CLASS="REDIS.CLIENTS.JEDIS.JEDISCLUSTER"> -->
-<!-- 		<CONSTRUCTOR-ARG> -->
-<!-- 			<SET> -->
-<!-- 				<BEAN CLASS="REDIS.CLIENTS.JEDIS.HOSTANDPORT"> -->
-<!-- 					<CONSTRUCTOR-ARG NAME="HOST" VALUE="192.168.56.11"></CONSTRUCTOR-ARG> -->
-<!-- 					<CONSTRUCTOR-ARG NAME="PORT" VALUE="7001"></CONSTRUCTOR-ARG> -->
-<!-- 				</BEAN> -->
-<!-- 				<BEAN CLASS="REDIS.CLIENTS.JEDIS.HOSTANDPORT"> -->
-<!-- 					<CONSTRUCTOR-ARG NAME="HOST" VALUE="192.168.56.11"></CONSTRUCTOR-ARG> -->
-<!-- 					<CONSTRUCTOR-ARG NAME="PORT" VALUE="7002"></CONSTRUCTOR-ARG> -->
-<!-- 				</BEAN> -->
-<!-- 				<BEAN CLASS="REDIS.CLIENTS.JEDIS.HOSTANDPORT"> -->
-<!-- 					<CONSTRUCTOR-ARG NAME="HOST" VALUE="192.168.56.11"></CONSTRUCTOR-ARG> -->
-<!-- 					<CONSTRUCTOR-ARG NAME="PORT" VALUE="7003"></CONSTRUCTOR-ARG> -->
-<!-- 				</BEAN> -->
-<!-- 				<BEAN CLASS="REDIS.CLIENTS.JEDIS.HOSTANDPORT"> -->
-<!-- 					<CONSTRUCTOR-ARG NAME="HOST" VALUE="192.168.56.11"></CONSTRUCTOR-ARG> -->
-<!-- 					<CONSTRUCTOR-ARG NAME="PORT" VALUE="7004"></CONSTRUCTOR-ARG> -->
-<!-- 				</BEAN> -->
-<!-- 				<BEAN CLASS="REDIS.CLIENTS.JEDIS.HOSTANDPORT"> -->
-<!-- 					<CONSTRUCTOR-ARG NAME="HOST" VALUE="192.168.56.11"></CONSTRUCTOR-ARG> -->
-<!-- 					<CONSTRUCTOR-ARG NAME="PORT" VALUE="7005"></CONSTRUCTOR-ARG> -->
-<!-- 				</BEAN> -->
-<!-- 				<BEAN CLASS="REDIS.CLIENTS.JEDIS.HOSTANDPORT"> -->
-<!-- 					<CONSTRUCTOR-ARG NAME="HOST" VALUE="192.168.56.11"></CONSTRUCTOR-ARG> -->
-<!-- 					<CONSTRUCTOR-ARG NAME="PORT" VALUE="7006"></CONSTRUCTOR-ARG> -->
-<!-- 				</BEAN> -->
-<!-- 			</SET> -->
-<!-- 		</CONSTRUCTOR-ARG> -->
-<!-- 	</BEAN> -->
-<!-- 	<BEAN ID="JEDISCLIENTCLUSTER" CLASS="COM.AMATERASU.Z.JEDISCLIENT.IMPL.JEDISCLIENTCLUSTER"/> -->
+<!-- 	<bean id="jediscluster" class="redis.clients.jedis.jediscluster"> -->
+<!-- 		<constructor-arg> -->
+<!-- 			<set> -->
+<!-- 				<bean class="redis.clients.jedis.hostandport"> -->
+<!-- 					<constructor-arg name="host" value="192.168.56.11"></constructor-arg> -->
+<!-- 					<constructor-arg name="port" value="7001"></constructor-arg> -->
+<!-- 				</bean> -->
+<!-- 				<bean class="redis.clients.jedis.hostandport"> -->
+<!-- 					<constructor-arg name="host" value="192.168.56.11"></constructor-arg> -->
+<!-- 					<constructor-arg name="port" value="7002"></constructor-arg> -->
+<!-- 				</bean> -->
+<!-- 				<bean class="redis.clients.jedis.hostandport"> -->
+<!-- 					<constructor-arg name="host" value="192.168.56.11"></constructor-arg> -->
+<!-- 					<constructor-arg name="port" value="7003"></constructor-arg> -->
+<!-- 				</bean> -->
+<!-- 				<bean class="redis.clients.jedis.hostandport"> -->
+<!-- 					<constructor-arg name="host" value="192.168.56.11"></constructor-arg> -->
+<!-- 					<constructor-arg name="port" value="7004"></constructor-arg> -->
+<!-- 				</bean> -->
+<!-- 				<bean class="redis.clients.jedis.hostandport"> -->
+<!-- 					<constructor-arg name="host" value="192.168.56.11"></constructor-arg> -->
+<!-- 					<constructor-arg name="port" value="7005"></constructor-arg> -->
+<!-- 				</bean> -->
+<!-- 				<bean class="redis.clients.jedis.hostandport"> -->
+<!-- 					<constructor-arg name="host" value="192.168.56.11"></constructor-arg> -->
+<!-- 					<constructor-arg name="port" value="7006"></constructor-arg> -->
+<!-- 				</bean> -->
+<!-- 			</set> -->
+<!-- 		</constructor-arg> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="jedisclientcluster" class="com.amaterasu.z.jedisclient.impl.jedisclientcluster">
+			<property name="jedisCluster" ref="jedisCluster"/>
+		</bean> -->
 	
 </beans>

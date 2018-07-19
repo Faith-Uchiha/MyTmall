@@ -1,4 +1,6 @@
-package com.Amaterasu.Z.utils;
+package com.Amaterasu.Z.jedis;
+
+import java.util.List;
 
 public interface JedisClient {
 
@@ -11,4 +13,7 @@ public interface JedisClient {
 	Long hset(String key, String field, String value);
 	String hget(String key, String field);
 	Long hdel(String key, String... field);
+	Boolean hexists(String key, String field);
+	List<String> hvals(String key);
+	Long del(String key);
 }

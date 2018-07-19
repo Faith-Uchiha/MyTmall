@@ -1,27 +1,24 @@
-package com.Amaterasu.Z.jedisclient.impl;
+package com.Amaterasu.Z.jedis;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import com.Amaterasu.Z.utils.JedisClient;
+import java.util.List;
 
 import redis.clients.jedis.JedisCluster;
 
-/**
- * 集群版JedisClient实现类
- * @author Amaterasu.Z
- *
- */
-
 public class JedisClientCluster implements JedisClient {
-
-	//利用spring注入对象 就不用构造方法初始化
-	@Autowired
+	
 	private JedisCluster jedisCluster;
 	
+
+	public JedisCluster getJedisCluster() {
+		return jedisCluster;
+	}
+
+	public void setJedisCluster(JedisCluster jedisCluster) {
+		this.jedisCluster = jedisCluster;
+	}
+
 	@Override
 	public String set(String key, String value) {
-		
 		return jedisCluster.set(key, value);
 	}
 
@@ -63,6 +60,21 @@ public class JedisClientCluster implements JedisClient {
 	@Override
 	public Long hdel(String key, String... field) {
 		return jedisCluster.hdel(key, field);
+	}
+
+	@Override
+	public Boolean hexists(String key, String field) {
+		return jedisCluster.hexists(key, field);
+	}
+
+	@Override
+	public List<String> hvals(String key) {
+		return jedisCluster.hvals(key);
+	}
+
+	@Override
+	public Long del(String key) {
+		return jedisCluster.del(key);
 	}
 
 }

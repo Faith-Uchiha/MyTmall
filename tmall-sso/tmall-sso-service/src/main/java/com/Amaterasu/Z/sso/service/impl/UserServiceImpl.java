@@ -10,13 +10,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
+import com.Amaterasu.Z.jedis.JedisClient;
 import com.Amaterasu.Z.mapper.TbUserMapper;
 import com.Amaterasu.Z.pojo.ResponseResult;
 import com.Amaterasu.Z.pojo.TbUser;
 import com.Amaterasu.Z.pojo.TbUserExample;
 import com.Amaterasu.Z.pojo.TbUserExample.Criteria;
 import com.Amaterasu.Z.sso.service.UserService;
-import com.Amaterasu.Z.utils.JedisClient;
 import com.Amaterasu.Z.utils.JsonUtils;
 
 @Service

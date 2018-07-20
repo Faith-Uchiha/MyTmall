@@ -17,5 +17,7 @@ public interface CartService {
 	public ResponseResult updateCartNum(long userId,long itemId,int num);
 
 	public ResponseResult deleteCartItem(long id, long itemId);
+
+	public ResponseResult deleteCart(long id);
 		
 }

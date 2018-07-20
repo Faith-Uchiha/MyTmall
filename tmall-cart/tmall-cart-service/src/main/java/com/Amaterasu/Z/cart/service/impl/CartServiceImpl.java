@@ -106,4 +106,12 @@ public class CartServiceImpl implements CartService{
 		return ResponseResult.ok();
 
 	}
+
+	//写入表成功后就删除购物车
+	@Override
+	public ResponseResult deleteCart(long id) {
+		
+		jedisClient.del(REDIS_CART_PRE+":"+id); 
+		return ResponseResult.ok();
+	}
 }

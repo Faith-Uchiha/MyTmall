@@ -5,7 +5,11 @@
 ![image](https://github.com/Faith-Uchiha/MyTmall/blob/master/ProjectArch.png)<br>
 数据量变大后可以采用Mycat对数据库进行分片处理，构成数据库集群
 ## 开发环境
-
+ - Eclipse Oxygen
+ - Maven3.3.9
+ - MySQL5.7.20
+ - virtualbox5.2.4
+ - centos6.5
 ## 软件版本
  - 详见tmall-parent的pom.xml
  

@@ -2,7 +2,7 @@
 个人仿制天猫商城
 
 ## 项目架构
-![image](https://github.com/Faith-Uchiha/MyTmall/blob/master/ProjectArch.png)
+![image](https://github.com/Faith-Uchiha/MyTmall/blob/master/ProjectArch.png)<br>
 数据量变大后可以采用Mycat对数据库进行分片处理，构成数据库集群
 ## 开发环境
 
